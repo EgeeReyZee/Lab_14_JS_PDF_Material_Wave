@@ -1,24 +1,46 @@
-import '../css/style.css'
-import javascriptLogo from '../javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import '../css/style.css';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+document.addEventListener('DOMContentLoaded', function() {
+  // Сохранение данных в LocalStorage
+  const editableElements = document.querySelectorAll('[contenteditable="true"]');
+  
+  editableElements.forEach(el => {
+    const storageKey = `resume_${el.tagName}_${el.parentNode.className}`;
+    const savedContent = localStorage.getItem(storageKey);
+    
+    if (savedContent) {
+      el.innerHTML = savedContent;
+    }
+    
+    el.addEventListener('input', function() {
+      localStorage.setItem(storageKey, el.innerHTML);
+    });
+  });
 
-setupCounter(document.querySelector('#counter'))
+  // Обработчик кнопки скачивания PDF
+  document.getElementById('download-btn').addEventListener('click', function() {
+    // Здесь будет код для генерации PDF
+    alert('Функция скачивания PDF будет реализована позже');
+    
+    // Для реальной реализации можно использовать библиотеку jsPDF:
+    // const { jsPDF } = window.jspdf;
+    // const doc = new jsPDF();
+    // doc.text('Текст резюме', 10, 10);
+    // doc.save('resume.pdf');
+  });
+
+  // Добавляем эффект ripple ко всем элементам с классом ripple
+  document.querySelectorAll('.ripple').forEach(element => {
+    element.addEventListener('click', function(e) {
+      const ripple = document.createElement('div');
+      ripple.classList.add('ripple-effect');
+      ripple.style.left = `${e.clientX - this.getBoundingClientRect().left}px`;
+      ripple.style.top = `${e.clientY - this.getBoundingClientRect().top}px`;
+      this.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  });
+});

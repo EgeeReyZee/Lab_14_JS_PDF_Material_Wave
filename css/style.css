@@ -181,7 +181,6 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* Ripple effect */
 .ripple {
   position: relative;
   overflow: hidden;
@@ -203,7 +202,6 @@ button:hover {
   }
 }
 
-/* Protected fields */
 #first-name, #last-name {
   background-color: rgba(255, 255, 255, 0.2);
   padding: 5px;
@@ -211,7 +209,6 @@ button:hover {
   display: inline-block;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .profile-section {
     flex-direction: column;
@@ -261,7 +258,6 @@ button:hover {
   object-fit: cover;
 }
 
-/* Гарантия круглой формы даже для неквадратных изображений */
 .photo-frame::before {
   content: "";
   display: block;

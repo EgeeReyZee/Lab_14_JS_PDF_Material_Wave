@@ -1,119 +1,269 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: #213547;
-  background-color: #ffffff;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --accent-color: #4895ef;
+  --text-color: #2b2d42;
+  --light-gray: #f8f9fa;
+  --medium-gray: #e9ecef;
+  --dark-gray: #6c757d;
+  --white: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--light-gray);
   padding: 20px;
+  min-height: 100vh;
 }
 
 .resume-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 30px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .resume-header {
-  text-align: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 30px;
 }
 
-.resume-header h1 {
-  font-size: 2.5em;
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.photo-upload {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+#profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow);
+}
+
+.upload-btn {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: var(--shadow);
+}
+
+#photo-input {
+  display: none;
+}
+
+.name-section {
+  flex: 1;
+}
+
+.name-section h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
   margin: 0;
-  color: #2c3e50;
+  line-height: 1.2;
+}
+
+.position {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 5px;
+}
+
+.contact-info {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.resume-body {
+  padding: 30px;
 }
 
 .resume-section {
   margin-bottom: 25px;
-  padding: 15px;
-  border-radius: 5px;
+  border: 1px solid var(--medium-gray);
+  border-radius: var(--border-radius);
   transition: all 0.3s ease;
 }
 
-.resume-section h2 {
-  color: #2c3e50;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 5px;
+.resume-section:hover {
+  box-shadow: var(--shadow);
 }
 
-[contenteditable="true"]:focus {
-  background-color: #f9f9f9;
-  outline: none;
+.resume-section h2 {
+  background-color: var(--medium-gray);
+  padding: 12px 20px;
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.section-content {
+  padding: 20px;
+}
+
+.section-content p, .section-content ul {
+  margin-bottom: 10px;
+}
+
+.section-content ul {
+  padding-left: 20px;
+}
+
+.columns {
+  display: flex;
+  gap: 20px;
+}
+
+.columns .resume-section {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  padding: 0 30px 30px;
 }
 
 button {
-  border-radius: 8px;
+  background-color: var(--primary-color);
+  color: var(--white);
   border: none;
   padding: 12px 24px;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #646cff;
-  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  transition: all 0.25s;
-  margin-top: 20px;
-  display: block;
-  width: 100%;
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
 }
 
 button:hover {
-  background-color: #535bf2;
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
-/* Material Ripple Effect */
+/* Ripple effect */
 .ripple {
   position: relative;
   overflow: hidden;
 }
 
-.ripple:after {
-  content: "";
-  display: block;
+.ripple-effect {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
   pointer-events: none;
-  background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  transform: scale(10,10);
-  opacity: 0;
-  transition: transform .5s, opacity 1s;
 }
 
-.ripple:active:after {
-  transform: scale(0,0);
-  opacity: .3;
-  transition: 0s;
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
-@media (max-width: 600px) {
-  .resume-container {
+/* Protected fields */
+#first-name, #last-name {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .columns {
+    flex-direction: column;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-header {
+    padding: 20px;
+  }
+  
+  .resume-body {
     padding: 15px;
   }
   
-  .resume-header h1 {
-    font-size: 2em;
+  .name-section h1 {
+    font-size: 1.8rem;
   }
+}
+
+.photo-frame {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+}
+
+#profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Гарантия круглой формы даже для неквадратных изображений */
+.photo-frame::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
 }

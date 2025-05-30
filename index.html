@@ -3,38 +3,88 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Моё резюме</title>
+  <title>Моё профессиональное резюме</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="app" class="resume-container">
-    <header class="resume-header ripple">
-      <h1 contenteditable="true">Иван Иванов</h1>
-      <p contenteditable="true">Frontend разработчик</p>
-    </header>
+    <div class="resume-header">
+      <div class="profile-section">
+        <div class="photo-upload">
+        <div class="photo-frame">
+            <img id="profile-photo" src="./assets/default-avatar.jpg" alt="Фото профиля">
+        </div>
+        <input type="file" id="photo-input" accept="image/*">
+        <label for="photo-input" class="upload-btn ripple">Загрузить фото</label>
+        </div>
+        <div class="name-section">
+          <h1 id="first-name" contenteditable="true">Иван</h1>
+          <h1 id="last-name" contenteditable="true">Иванов</h1>
+          <p class="position" contenteditable="true">Frontend разработчик</p>
+        </div>
+      </div>
+      <div class="contact-info" contenteditable="true">
+        <p>📧 email@example.com</p>
+        <p>📞 +7 (123) 456-78-90</p>
+        <p>📍 Новосибирск, Россия</p>
+      </div>
+    </div>
     
-    <section class="resume-section ripple" contenteditable="true">
-      <h2>О себе</h2>
-      <p>Опытный фронтенд-разработчик с 3+ годами опыта. Специализация: JavaScript, React, Vue.js.</p>
-    </section>
+    <div class="resume-body">
+      <section class="resume-section ripple">
+        <h2>О себе</h2>
+        <div class="section-content" contenteditable="true">
+          <p>Опытный фронтенд-разработчик с 27+ годами опыта. Специализация: JavaScript, React, Vue.js. Умею работать в команде и быстро осваиваю новые технологии.</p>
+        </div>
+      </section>
+      
+      <div class="columns">
+        <section class="resume-section ripple">
+          <h2>Навыки</h2>
+          <div class="section-content" contenteditable="true">
+            <ul>
+              <li>HTML5/CSS3/Sass</li>
+              <li>JavaScript/TypeScript</li>
+              <li>React/Vue.js</li>
+              <li>Git/GitHub</li>
+              <li>Webpack/Vite</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section class="resume-section ripple">
+          <h2>Образование</h2>
+          <div class="section-content" contenteditable="true">
+            <p><strong>СибГУТИ, группы ИКС</strong><br>
+            Компьютерные науки, 2024-2028</p>
+          </div>
+        </section>
+      </div>
+      
+      <section class="resume-section ripple">
+        <h2>Опыт работы</h2>
+        <div class="section-content" contenteditable="true">
+          <p><strong>Веб-студия "Дизайн"</strong><br>
+          Frontend разработчик, 1998-2025<br>
+          - Разработка SPA-приложений<br>
+          - Оптимизация производительности</p>
+          
+          <p><strong>Фриланс</strong><br>
+          Веб-разработчик, 1998-2025<br>
+          - Создание сайтов под ключ</p>
+        </div>
+      </section>
+    </div>
     
-    <section class="resume-section ripple" contenteditable="true">
-      <h2>Навыки</h2>
-      <ul>
-        <li>HTML5/CSS3</li>
-        <li>JavaScript/TypeScript</li>
-        <li>React/Vue</li>
-        <li>Git</li>
-      </ul>
-    </section>
-    
-    <section class="resume-section ripple" contenteditable="true">
-      <h2>Опыт работы</h2>
-      <p><strong>Веб-студия "Дизайн"</strong> (2020-2023)<br>
-      Frontend разработчик</p>
-    </section>
-    
-    <button id="download-btn" class="ripple">Скачать PDF</button>
+    <div class="actions">
+        <button id="download-btn" class="ripple">
+        <span>Скачать PDF</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15V3M12 15L8 11M12 15L16 11M21 15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        </button>
+    </div>
   </div>
   
   <script type="module" src="./js/main.js"></script>
